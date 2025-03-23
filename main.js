@@ -46,8 +46,7 @@ function mostrarMenu() {
   }
 }
 
-//Llamamos al menú para iniciar la app
-mostrarMenu();
+
 
 //Funcion Agregar Tarea
 function agregarTarea() {
@@ -67,3 +66,24 @@ function agregarTarea() {
     alert("Tarea agregada correctamente.");
   }
   
+
+//Función Ver Tareas
+function verTareas() {
+    if (tareas.length === 0) {
+      alert("No hay tareas registradas.");
+      return;
+    }
+  
+    let mensaje = "TUS TAREAS:\n\n";
+  
+    tareas.forEach((tarea, index) => {
+      let estado = tarea.completada ? "✅" : "⏳";
+      mensaje += `[${index}] ${estado} ${tarea.descripcion}\n`;
+    });
+  
+    alert(mensaje);
+  }
+
+  
+//Llamamos al menú para iniciar la app
+mostrarMenu();

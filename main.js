@@ -160,6 +160,42 @@ function eliminarTarea() {
     }
   }
 
+
+
+
+  function verCompletadas() {
+    const completadas = tareas.filter(tarea => tarea.completada);
+  
+    if (completadas.length === 0) {
+      alert("📭 No hay tareas completadas aún.");
+      return;
+    }
+  
+    let mensaje = "✅ TAREAS COMPLETADAS:\n\n";
+  
+    completadas.forEach((tarea, index) => {
+      mensaje += `• ${tarea.descripcion}\n`;
+    });
+  
+    alert(mensaje);
+  }
+
+  function verPendientes() {
+    const pendientes = tareas.filter(tarea => !tarea.completada);
+  
+    if (pendientes.length === 0) {
+      alert("📭 No tienes tareas pendientes. ¡Buen trabajo!");
+      return;
+    }
+  
+    let mensaje = "⏳ TAREAS PENDIENTES:\n\n";
+  
+    pendientes.forEach((tarea, index) => {
+      mensaje += `• ${tarea.descripcion}\n`;
+    });
+  
+    alert(mensaje);
+  }
   
 //Llamamos al menú para iniciar la app
 mostrarMenu();

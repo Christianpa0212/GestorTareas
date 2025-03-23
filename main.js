@@ -121,6 +121,45 @@ function marcarTarea() {
     alert("Tarea marcada como completada.");
   }
 
+
+//Funcion eliminar tareas
+function eliminarTarea() {
+    if (tareas.length === 0) {
+      alert("📭 No hay tareas para eliminar.");
+      return;
+    }
+  
+    let lista = "🗑️ TAREAS DISPONIBLES:\n\n";
+  
+    tareas.forEach((tarea, index) => {
+      let estado = tarea.completada ? "✅" : "⏳";
+      lista += `[${index}] ${estado} ${tarea.descripcion}\n`;
+    });
+  
+    let indice = prompt(lista + "\n🖊️ Escribe el número de la tarea que deseas eliminar:");
+  
+    if (indice === null || indice.trim() === "") {
+      alert("❌ No se seleccionó ninguna tarea.");
+      return;
+    }
+  
+    indice = parseInt(indice);
+  
+    if (isNaN(indice) || indice < 0 || indice >= tareas.length) {
+      alert("⚠️ Índice inválido.");
+      return;
+    }
+  
+    const confirmacion = confirm(`¿Estás seguro de eliminar la tarea: "${tareas[indice].descripcion}"?`);
+  
+    if (confirmacion) {
+      tareas.splice(indice, 1);
+      alert("🗑️ Tarea eliminada correctamente.");
+    } else {
+      alert("❎ Eliminación cancelada.");
+    }
+  }
+
   
 //Llamamos al menú para iniciar la app
 mostrarMenu();

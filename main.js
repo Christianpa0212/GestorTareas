@@ -84,6 +84,43 @@ function verTareas() {
     alert(mensaje);
   }
 
+//Funcion para cambiar el estado de la tarea
+function marcarTarea() {
+    if (tareas.length === 0) {
+      alert("📭 No hay tareas para marcar.");
+      return;
+    }
+  
+    let lista = "📋 TAREAS DISPONIBLES:\n\n";
+  
+    tareas.forEach((tarea, index) => {
+      let estado = tarea.completada ? "✅" : "⏳";
+      lista += `[${index}] ${estado} ${tarea.descripcion}\n`;
+    });
+  
+    let indice = prompt(lista + "\nEscribe el número de la tarea a marcar como completada:");
+  
+    if (indice === null || indice.trim() === "") {
+      alert("No se seleccionó ninguna tarea.");
+      return;
+    }
+  
+    indice = parseInt(indice);
+  
+    if (isNaN(indice) || indice < 0 || indice >= tareas.length) {
+      alert("Índice inválido.");
+      return;
+    }
+  
+    if (tareas[indice].completada) {
+      alert("La tarea ya estaba marcada como completada.");
+      return;
+    }
+  
+    tareas[indice].completada = true;
+    alert("Tarea marcada como completada.");
+  }
+
   
 //Llamamos al menú para iniciar la app
 mostrarMenu();

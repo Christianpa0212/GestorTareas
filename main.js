@@ -48,3 +48,22 @@ function mostrarMenu() {
 
 //Llamamos al menú para iniciar la app
 mostrarMenu();
+
+//Funcion Agregar Tarea
+function agregarTarea() {
+    let descripcion = prompt("Escribe la descripción de la nueva tarea:");
+  
+    if (!descripcion) {
+      alert("No se agregó ninguna tarea.");
+      return;
+    }
+  
+    let nuevaTarea = {
+      descripcion: descripcion.trim(),
+      completada: false
+    };
+  
+    tareas.push(nuevaTarea);
+    alert("Tarea agregada correctamente.");
+  }
+  

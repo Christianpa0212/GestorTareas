@@ -162,7 +162,7 @@ function eliminarTarea() {
 
 
 
-
+//Función ver completadas
   function verCompletadas() {
     const completadas = tareas.filter(tarea => tarea.completada);
   
@@ -180,6 +180,7 @@ function eliminarTarea() {
     alert(mensaje);
   }
 
+//Funcion Ver Pendientes
   function verPendientes() {
     const pendientes = tareas.filter(tarea => !tarea.completada);
   
